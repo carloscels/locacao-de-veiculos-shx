@@ -1,0 +1,26 @@
+package com.shx.carros.servico;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.shx.carros.entidades.Produto;
+import com.shx.carros.repositorios.RepositoriodoProduto;
+
+@Service
+public class ServicodoProduto {
+	
+	@Autowired
+	private RepositoriodoProduto repositorio;
+	
+	public List<Produto> findAll(){
+		return repositorio.findAll();
+	}
+
+	public Produto findById(Long id) {
+		Optional<Produto> obj = repositorio.findById(id); 
+		return obj.get();
+	}
+}
